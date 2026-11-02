@@ -22,5 +22,7 @@ jobs:
     uses: LusoCryptoLabs/.github/.github/workflows/pr-check.yml@main
 ```
 
+The job reports as `pr / title and description`, the name each repository's ruleset requires on its default branch.
+
 The check is `scripts/pr-check.js`. It reads only the event GitHub gives the job, with no token
 and no API call. `sh test/run.sh` runs it against the cases in that file.
