@@ -1,0 +1,26 @@
+name: pr-check
+
+# Called by each repository's pr.yml. Checks every pull request's title and, from contributors
+# outside the account, its description. Reads only the event: no token, no API call.
+
+on:
+  workflow_call:
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    name: title and description
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          repository: LusoCryptoLabs/.github
+          ref: main
+          sparse-checkout: scripts/pr-check.js
+          sparse-checkout-cone-mode: false
+          path: .pr-check
+          persist-credentials: false
+      - run: node .pr-check/scripts/pr-check.js

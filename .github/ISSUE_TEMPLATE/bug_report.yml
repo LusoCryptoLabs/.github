@@ -1,0 +1,62 @@
+name: Bug report
+description: Something does not work as it should.
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        A security problem goes in a private report, not here: see [SECURITY.md](https://github.com/LusoCryptoLabs/.github/blob/main/SECURITY.md).
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened
+      description: What you saw, with the exact error if there was one.
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: What you expected
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: How to reproduce it
+      description: The fewest steps that show it. Commands, inputs, transaction hashes.
+      placeholder: |
+        1.
+        2.
+        3.
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: Version or commit
+      description: The release, package version or commit you ran.
+    validations:
+      required: true
+  - type: dropdown
+    id: network
+    attributes:
+      label: Network
+      options:
+        - Not on a chain
+        - CKB testnet
+        - CKB mainnet
+        - A local or dev chain
+        - Other
+    validations:
+      required: true
+  - type: textarea
+    id: environment
+    attributes:
+      label: Environment
+      description: Operating system, Node or Rust version, browser, wallet. Whatever applies.
+  - type: textarea
+    id: logs
+    attributes:
+      label: Logs
+      description: Remove keys, seeds and tokens before you paste.
+      render: text
